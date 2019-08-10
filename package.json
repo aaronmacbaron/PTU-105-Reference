@@ -1,0 +1,12 @@
+{
+	"name": "ptu105ref",
+	"version": "1.0.0",
+	"description": "A reference bot for Pokemon Tabletop United 1.05",
+	"main": "bot.js",
+	"author": "Aaron Pedro(aaronmacbaron)",
+	"dependencies": {
+		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+		"voca": "^1.4.0",
+		"winston": "^3.2.1"
+	}
+}
