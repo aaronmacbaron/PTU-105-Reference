@@ -6,7 +6,12 @@ module.exports = {
     lookup : (edge) => {
         formatted_edge = v.lowerCase(edge);
         if(edict.edge_dictionary[formatted_edge])
-            return  edict.edge_dictionary[formatted_edge].desc 
+            return  "**"
+            + edict.edge_dictionary[formatted_edge].name 
+            + "**\r" 
+            + "**Category: **" + edict.edge_dictionary[formatted_edge].category 
+            +"\r"
+            + edict.edge_dictionary[formatted_edge].desc 
         else
         return edict.error.non_existent_edge;    
     },
