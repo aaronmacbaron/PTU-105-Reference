@@ -55,18 +55,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }); 
             break;
             case 'listedges':
-                let secondaryCommand = args[0];
-                let categoryName = args.join(" ");
-                if(secondaryCommand == '-c')
+                if(args[0]){
+                    let categoryName = args.join(" ");
                     bot.sendMessage({
                         to: channelID,
                         message: edgedict.allByCategory(categoryName)
                     }); 
-                else
+                }
+                else{
                     bot.sendMessage({
                         to: channelID,
-                        message: edgedict.all()
+                        message: edgedict.listCategories()
                     });
+                }
             break;
             // Just add any case commands if you want to..
          }
