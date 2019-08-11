@@ -1,7 +1,8 @@
-var Discord = require('discord.io');
-var logger = require('winston');
-var auth = require('./auth.json');
+var Discord  = require('discord.io');
+var logger   = require('winston');
+var auth     = require('./auth.json');
 let edgedict = require('./edges/logic');
+let misc     = require('./misc');
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
