@@ -48,6 +48,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: edgedict.usage()
                 }); 
             break;
+            case 'commands':
+                bot.sendMessage({
+                    to: channelID,
+                    message: misc.commands()
+                }); 
+            break;
             case 'listedges':
                 let secondaryCommand = args[0];
                 let categoryName = args.join(" ");
