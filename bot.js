@@ -48,6 +48,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         message: "**usage:** !lookup <possible edge or feature>"
                     });
             break;
+            case 'pedges':
+                  let prereq = args.join(" ");
+                  bot.sendMessage({
+                    to: channelID,
+                    message: edgeDict.prereqLookup(prereq)
+                });
+            break;
             case 'edges':
                 let edgename = args.join(" ");
                 if(edgename)
