@@ -9,6 +9,7 @@ commands - Show this list
 
 lookup <feature or edge name> - get details on a specific term
 
+pedges <prerequisite name> - List all edges with the prerequisite provided
 edges <edge name> - Get details on a specific edge
 listedges - Show usage of list edges and the available categories
 listedges <edge category> - Show all edges from a specific category
@@ -36,7 +37,10 @@ listfeatures <feature category> - Show all features from a specific category`;
             + "**Type: ** Edge\r"
             + "**Category: **" + edict.edge_dictionary[formatted_text].category 
             +"\r"
-            + edict.edge_dictionary[formatted_text].desc;
+            + "**Prerequisites: **" + edict.edge_dictionary[formatted_text].prerequisites 
+            +"\r"
+            + "**Effect: **" + edict.edge_dictionary[formatted_text].effect 
+            +"\r"
         else
             return "**Lookup failure: **" + term +" was not found.";
         return retVal;
