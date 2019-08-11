@@ -7,6 +7,8 @@ module.exports = {
         let str = `
 commands - Show this list
 
+lookup <feature or edge name> - get details on a specific term
+
 edges <edge name> - Get details on a specific edge
 listedges - Show usage of list edges and the available categories
 listedges <edge category> - Show all edges from a specific category
