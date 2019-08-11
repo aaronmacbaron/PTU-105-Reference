@@ -15,12 +15,18 @@ module.exports = {
         else
         return edict.error.non_existent_edge;    
     },
-    all : () => {
-        let list = "";
+    listCategories: () => {
+        let categories = [];
         for (var entry in edict.edge_dictionary) {
-            list += edict.edge_dictionary[entry].name + "\r";
+            let category = edict.edge_dictionary[entry].category;   
+            if(!categories.includes(category))
+                categories.push(category)
         }
-        return list;
+        return `
+        **Usage:** !listedges <category name>
+**Example:** !listedges Combat
+Here is a list of the different categories:\r`+
+         categories.join(", ");
     },
     allByCategory : (edgeCategory) => {
         let list = "";
