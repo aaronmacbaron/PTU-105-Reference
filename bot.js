@@ -1,7 +1,8 @@
 var Discord  = require('discord.io');
 var logger   = require('winston');
 var auth     = require('./auth.json');
-let edgedict = require('./edges/logic');
+let edgeDict = require('./edges/logic');
+let featureDict = require('./features/logic');
 let misc     = require('./misc');
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -28,30 +29,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        
         args = args.splice(1);
         switch(cmd) {
-            // !ping
-            case 'ping':
-                bot.sendMessage({
-                    to: channelID,
-                    message: args
-                });
+            case 'commands':
+                    bot.sendMessage({
+                        to: channelID,
+                        message: misc.commands()
+                    }); 
             break;
             case 'edges':
                 let edgename = args.join(" ");
                 if(edgename)
                     bot.sendMessage({
                         to: channelID,
-                        message: edgedict.lookup(edgename)
+                        message: edgeDict.lookup(edgename)
                     });
                 else
                 bot.sendMessage({
                     to: channelID,
-                    message: edgedict.usage()
-                }); 
-            break;
-            case 'commands':
-                bot.sendMessage({
-                    to: channelID,
-                    message: misc.commands()
+                    message: edgeDict.usage()
                 }); 
             break;
             case 'listedges':
@@ -59,13 +53,41 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     let categoryName = args.join(" ");
                     bot.sendMessage({
                         to: channelID,
-                        message: edgedict.allByCategory(categoryName)
+                        message: edgeDict.allByCategory(categoryName)
                     }); 
                 }
                 else{
                     bot.sendMessage({
                         to: channelID,
-                        message: edgedict.listCategories()
+                        message: edgeDict.listCategories()
+                    });
+                }
+            break;
+            case 'features':
+                let featurename = args.join(" ");
+                if(featurename)
+                    bot.sendMessage({
+                        to: channelID,
+                        message: featureDict.lookup(featurename)
+                    });
+                else
+                bot.sendMessage({
+                    to: channelID,
+                    message: featureDict.usage()
+                }); 
+            break;
+            case 'listfeatures':
+                if(args[0]){
+                    let categoryName = args.join(" ");
+                    bot.sendMessage({
+                        to: channelID,
+                        message: featureDict.allByCategory(categoryName)
+                    }); 
+                }
+                else{
+                    bot.sendMessage({
+                        to: channelID,
+                        message: featureDict.listCategories()
                     });
                 }
             break;
