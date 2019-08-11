@@ -30,10 +30,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         args = args.splice(1);
         switch(cmd) {
             case 'commands':
+                bot.sendMessage({
+                    to: channelID,
+                    message: misc.commands()
+                }); 
+            break;
+            case 'lookup':
+                let term = args.join(" ");
+                if(term)
                     bot.sendMessage({
                         to: channelID,
-                        message: misc.commands()
+                        message: misc.lookup(term)
                     }); 
+                else
+                    bot.sendMessage({
+                        to: channelID,
+                        message: "**usage:** !lookup <possible edge or feature>"
+                    });
             break;
             case 'edges':
                 let edgename = args.join(" ");
