@@ -211,7 +211,7 @@ make Pokemon at 0 or 1 Loyalty obey your commands.
 You may also use Intimidate instead of Command
 to determine the limits and Bonus Experience from
 Training.`},
-"Athletic Initiative" : {
+"athletic initiative" : {
 "name" : "Athletic Initiative",
 "category" : "Combat",
 "desc" : `Prerequisites: Adept Athletics
@@ -372,7 +372,7 @@ by +1 each.`},
 "category" : "Other",
 "desc" : `Prerequisites: Expert Stealth
 Effect: You gain the Stealth Capability.`},
-"Elemental Connection" : {
+"elemental connection" : {
 "name" : "Elemental Connection",
 "category" : "Other",
 "desc" : `Prerequisites: None
