@@ -9,9 +9,9 @@ module.exports = {
         if(fdict.feature_dictionary[formatted_feature])
             return  "**"
             + fdict.feature_dictionary[formatted_feature].name 
-            + "**\r" 
+            + "**\n" 
             + "**Category: **" + fdict.feature_dictionary[formatted_feature].category 
-            +"\r"
+            +"\n"
             + fdict.feature_dictionary[formatted_feature].desc 
         else
         return fdict.error.non_existent_error;    
