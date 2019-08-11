@@ -17,6 +17,16 @@ module.exports = {
         else
         return edict.error.non_existent_edge;    
     },
+    prereqLookup: (prereq) => {
+        let formatted_prereq = v.lowerCase(prereq);
+        let entries = [];
+        for (var entry in edict.edge_dictionary) {
+            let searchtarget = v.lowerCase(edict.edge_dictionary[entry].prerequisites);  
+            if(searchtarget.indexOf(formatted_prereq) > -1)
+                entries.push(v.titleCase(entry))
+        }
+        return entries.join("\n");
+    },
     listCategories: () => {
         let categories = [];
         for (var entry in edict.edge_dictionary) {
