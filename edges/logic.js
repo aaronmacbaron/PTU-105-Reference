@@ -29,13 +29,18 @@ Here is a list of the different categories:\r`+
          categories.join(", ");
     },
     allByCategory : (edgeCategory) => {
-        let list = "";
+        let list = [];
         let formattedCategory = v.lowerCase(edgeCategory);
         for (var entry in edict.edge_dictionary) {
             if(v.lowerCase(edict.edge_dictionary[entry].category) === formattedCategory)
-                list += edict.edge_dictionary[entry].name + "\r";
+                list.push(edict.edge_dictionary[entry].name);
         }
-        return list;
+        list.sort(function(a, b) {
+            var textA = a.toUpperCase();
+            var textB = b.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        return list.join("\r");
     },
     usage : () => {
         return `**usage:** !edges <skill name>\rexample: !edges Basic Skills`;
