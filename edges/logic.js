@@ -11,7 +11,9 @@ module.exports = {
             + "**\r" 
             + "**Category: **" + edict.edge_dictionary[formatted_edge].category 
             +"\r"
-            + edict.edge_dictionary[formatted_edge].desc 
+            + "**Prerequisites: **" + edict.edge_dictionary[formatted_edge].prerequisites 
+            +"\r"
+            + "**Effect: **" + edict.edge_dictionary[formatted_edge].effect
         else
         return edict.error.non_existent_edge;    
     },
