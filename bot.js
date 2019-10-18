@@ -3,6 +3,7 @@ var logger   = require('winston');
 var auth     = require('./auth.json');
 let edgeDict = require('./edges/logic');
 let featureDict = require('./features/logic');
+let pokeAPI = require('./apis/pokeapi')
 let misc     = require('./misc');
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -111,6 +112,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     });
                 }
             break;
+            case 'pokeinfo':
+                    if(args[0]){
+                        let pokemon_name = args.join(" ");
+                        bot.sendMessage({
+                            to: channelID,
+                            message: pokeAPI.lookup(pokemon_name)
+                        }); 
+                    }
+            break;
+            
+            
             // Just add any case commands if you want to..
          }
      }
